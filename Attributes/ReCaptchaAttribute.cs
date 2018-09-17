@@ -27,7 +27,6 @@ namespace DDreCaptcha.Attributes
                 {
                     ((ControllerBase)context.Controller).ModelState.AddModelError("ReCaptcha", "Error");
                     context.Result = ((ControllerBase)context.Controller).BadRequest("ReCaptcha Error");
-                    Console.WriteLine("No recaptcha secret");
                     return;
                 }
 
@@ -41,19 +40,27 @@ namespace DDreCaptcha.Attributes
                     var response = client.GetStringAsync($"?response={recaptchaResponse}&secret={secret}&action={recaptchaAction}").Result;
                     var result = JsonConvert.DeserializeObject<RecaptchaResponse>(response);
 
-                    if (result.Success == false || result.Score < scoreLimit)
+                    if (result.Success == false)
                     {
                         ((ControllerBase)context.Controller).ModelState.AddModelError("ReCaptcha", "Error");
-                        context.Result = ((ControllerBase)context.Controller).BadRequest($"ReCaptcha Error, {string.Join(',', result.ErrorCodes)}");
-                        Console.WriteLine(string.Join(',', result.ErrorCodes));
+                        context.Result =
+                            ((ControllerBase)context.Controller).BadRequest(
+                                $"ReCaptcha Error, {string.Join(',', result.ErrorCodes)}");
+                    }
+
+                    if (result.Score < scoreLimit)
+                    {
+                        ((ControllerBase)context.Controller).ModelState.AddModelError("ReCaptcha", "Error");
+                        context.Result =
+                            ((ControllerBase)context.Controller).BadRequest(
+                                $"Recaptcha score to low ({result.Score})");
                     }
                 }
             }
             catch (Exception e)
             {
                 ((ControllerBase)context.Controller).ModelState.AddModelError("ReCaptcha", "Error");
-                context.Result = ((ControllerBase)context.Controller).BadRequest("ReCaptcha Error");
-                Console.WriteLine(e.Message + e.InnerException.StackTrace);
+                context.Result = ((ControllerBase)context.Controller).BadRequest("ReCaptcha Error, " + e.Message);
             }
         }
     }
