@@ -15,7 +15,7 @@ namespace DDreCaptcha.Models
         [JsonProperty(PropertyName = "error-codes")]
         public List<string> ErrorCodes { get; set; }
         [JsonProperty(PropertyName = "score")]
-        public float Score { get; set; }
+        public string Score { get; set; }
         [JsonProperty(PropertyName = "action")]
         public string Action { get; set; }
     }
