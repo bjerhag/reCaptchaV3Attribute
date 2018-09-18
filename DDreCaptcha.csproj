@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <Version>0.1.5</Version>
+    <Version>0.2.0</Version>
     <PackageId>reCaptchaV3Attribute</PackageId>
     <Authors>Magnus Bjerhag</Authors>
     <Company>DynamicDog</Company>
     <Product />
-    <Description>An attribute that checks request to API-methods for recaptcha validation</Description>
+    <Description>An attribute that checks request to API-methods for recaptcha validation
+Works with V2 and V3 beta</Description>
     <PackageProjectUrl>https://www.nuget.org/packages/reCaptchaV3Attribute/</PackageProjectUrl>
     <PackageTags>reCaptcha</PackageTags>
   </PropertyGroup>
