@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.0": {
-      "DDreCaptcha/0.1.5": {
+      "DDreCaptcha/0.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Core": "2.0.0",
           "Newtonsoft.Json": "11.0.2"
@@ -614,7 +614,7 @@
     }
   },
   "libraries": {
-    "DDreCaptcha/0.1.5": {
+    "DDreCaptcha/0.2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

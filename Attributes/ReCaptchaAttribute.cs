@@ -31,8 +31,8 @@ namespace DDreCaptcha.Attributes
                 }
 
                 var httpContext = context.HttpContext;
-                var recaptchaResponse = httpContext.Request.Headers["recaptcha_response"].FirstOrDefault();
-                var recaptchaAction = httpContext.Request.Headers["recaptcha_action"].FirstOrDefault();
+                var recaptchaResponse = httpContext.Request.Headers["recaptcha-response"].FirstOrDefault();
+                var recaptchaAction = httpContext.Request.Headers["recaptcha-action"].FirstOrDefault();
                 using (var client = new HttpClient())
                 {
                     client.BaseAddress = new Uri(@"https://www.google.com/recaptcha/api/siteverify");
