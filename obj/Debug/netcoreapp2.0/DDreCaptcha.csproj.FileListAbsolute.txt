@@ -1,9 +1,0 @@
-D:\DD\DDreCaptcha\DDreCaptcha\obj\Debug\netcoreapp2.0\DDreCaptcha.csprojAssemblyReference.cache
-D:\DD\DDreCaptcha\DDreCaptcha\obj\Debug\netcoreapp2.0\DDreCaptcha.csproj.CoreCompileInputs.cache
-D:\DD\DDreCaptcha\DDreCaptcha\obj\Debug\netcoreapp2.0\DDreCaptcha.AssemblyInfoInputs.cache
-D:\DD\DDreCaptcha\DDreCaptcha\obj\Debug\netcoreapp2.0\DDreCaptcha.AssemblyInfo.cs
-D:\DD\DDreCaptcha\DDreCaptcha\bin\Debug\netcoreapp2.0\DDreCaptcha.deps.json
-D:\DD\DDreCaptcha\DDreCaptcha\bin\Debug\netcoreapp2.0\DDreCaptcha.dll
-D:\DD\DDreCaptcha\DDreCaptcha\bin\Debug\netcoreapp2.0\DDreCaptcha.pdb
-D:\DD\DDreCaptcha\DDreCaptcha\obj\Debug\netcoreapp2.0\DDreCaptcha.dll
-D:\DD\DDreCaptcha\DDreCaptcha\obj\Debug\netcoreapp2.0\DDreCaptcha.pdb
