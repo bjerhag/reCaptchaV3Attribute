@@ -61,7 +61,7 @@ namespace DDreCaptcha.Attributes
                 if (context == null)
                     return;
                 ((ControllerBase)context.Controller).ModelState.AddModelError("ReCaptcha", "Error");
-                context.Result = ((ControllerBase)context.Controller).BadRequest("ReCaptcha Error, " + e.Message);
+                context.Result = ((ControllerBase)context.Controller).BadRequest($"ReCaptcha Error, {e.Message}, {e.StackTrace}, {e.InnerException?.Message}, {e.InnerException?.StackTrace}");
             }
         }
     }
