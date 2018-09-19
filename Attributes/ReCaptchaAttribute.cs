@@ -22,7 +22,7 @@ namespace DDreCaptcha.Attributes
                     return;
                 }
                 var secret = Config.GetSection("Recaptcha:Secret")?.Value ?? "";
-                var scoreLimit = float.Parse(Config.GetSection("Recaptcha:ScoreLimit")?.Value ?? "0");
+                float.TryParse(Config.GetSection("Recaptcha:ScoreLimit")?.Value ?? "0", out var scoreLimit);
                 if (string.IsNullOrEmpty(secret))
                 {
                     ((ControllerBase)context.Controller).ModelState.AddModelError("ReCaptcha", "Error");
@@ -37,7 +37,7 @@ namespace DDreCaptcha.Attributes
                 {
                     client.BaseAddress = new Uri(@"https://www.google.com/recaptcha/api/siteverify");
 
-                    var response = client.GetStringAsync($"?response={recaptchaResponse}&secret={secret}&action={recaptchaAction}").Result;
+                    var response = client.GetStringAsync($"?response={recaptchaResponse}&secret={secret}&action={recaptchaAction}")?.Result;
                     var result = JsonConvert.DeserializeObject<RecaptchaResponse>(response);
 
                     if (result.Success == false)
@@ -47,12 +47,12 @@ namespace DDreCaptcha.Attributes
                             ((ControllerBase)context.Controller).BadRequest(
                                 $"ReCaptcha Error, {string.Join(',', result.ErrorCodes)}");
                     }
-                    else if (float.TryParse(result.Score, out var score) && score < scoreLimit)
+                    else if (result.Score != null && float.TryParse(result.Score, out var score) && score < scoreLimit)
                     {
                         ((ControllerBase)context.Controller).ModelState.AddModelError("ReCaptcha", "Error");
                         context.Result =
                             ((ControllerBase)context.Controller).BadRequest(
-                                $"Recaptcha score to low ({result.Score})");
+                                $"Recaptcha score to low ({score})");
                     }
                 }
             }
