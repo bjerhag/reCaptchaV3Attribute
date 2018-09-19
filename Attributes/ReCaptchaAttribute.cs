@@ -31,7 +31,6 @@ namespace DDreCaptcha.Attributes
                 {
                     ((ControllerBase)context.Controller).ModelState.AddModelError("ReCaptcha", "Error");
                     context.Result = ((ControllerBase)context.Controller).BadRequest("ReCaptcha Not configured");
-                    return;
                 }
 
                 var secret = Config.GetSection("Recaptcha:Secret")?.Value ?? "";
@@ -40,7 +39,6 @@ namespace DDreCaptcha.Attributes
                 {
                     ((ControllerBase)context.Controller).ModelState.AddModelError("ReCaptcha", "Error");
                     context.Result = ((ControllerBase)context.Controller).BadRequest("ReCaptcha Error");
-                    return;
                 }
 
                 var httpContext = context.HttpContext;
