@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <Version>0.2.5</Version>
+    <Version>0.3.1</Version>
     <PackageId>reCaptchaV3Attribute</PackageId>
     <Authors>Magnus Bjerhag</Authors>
     <Company>DynamicDog</Company>
@@ -11,6 +11,15 @@
 Works with V2 and V3 beta</Description>
     <PackageProjectUrl>https://www.nuget.org/packages/reCaptchaV3Attribute/</PackageProjectUrl>
     <PackageTags>reCaptcha</PackageTags>
+    <PackageReleaseNotes>Add to appsettings.json:
+"Recaptcha": {
+"Secret": "[API-SECRET]",
+"ScoreLimit": "[0-1]" (optional, only used in V3)
+},
+
+When sending request to api send recaptcha response and action in header as:
+recaptcha-response
+recaptcha-action</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
