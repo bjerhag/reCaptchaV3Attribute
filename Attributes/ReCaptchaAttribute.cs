@@ -47,7 +47,7 @@ namespace DDreCaptcha.Attributes
                             ((ControllerBase)context.Controller).BadRequest(
                                 $"ReCaptcha Error, {string.Join(',', result.ErrorCodes)}");
                     }
-                    else if (result.Score != null && float.TryParse(result.Score, out var score) && score < scoreLimit)
+                    else if (!string.IsNullOrEmpty(result.Score) && float.TryParse(result.Score, out var score) && score < scoreLimit)
                     {
                         ((ControllerBase)context.Controller).ModelState.AddModelError("ReCaptcha", "Error");
                         context.Result =

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>reCaptchaV3Attribute</id>
+    <version>0.2.4</version>
+    <authors>Magnus Bjerhag</authors>
+    <owners>Magnus Bjerhag</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://www.nuget.org/packages/reCaptchaV3Attribute/</projectUrl>
+    <description>An attribute that checks request to API-methods for recaptcha validation
+Works with V2 and V3 beta</description>
+    <tags>reCaptcha</tags>
+    <dependencies>
+      <group targetFramework=".NETCoreApp2.0">
+        <dependency id="Microsoft.AspNetCore.Mvc.Core" version="2.0.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="11.0.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\DD\DDreCaptcha\DDreCaptcha\bin\Debug\netcoreapp2.0\DDreCaptcha.dll" target="lib\netcoreapp2.0\DDreCaptcha.dll" />
+  </files>
+</package>

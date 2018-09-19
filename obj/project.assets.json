@@ -3532,7 +3532,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "0.2.3",
+    "version": "0.2.4",
     "restore": {
       "projectUniqueName": "D:\\DD\\DDreCaptcha\\DDreCaptcha\\DDreCaptcha.csproj",
       "projectName": "reCaptchaV3Attribute",
@@ -3544,7 +3544,6 @@
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "D:\\projects\\cg\\Bergendahls.EmailService\\NuGet.Config",
         "C:\\Users\\mbjer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3554,11 +3553,7 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "D:\\nugets": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://dotnet.myget.org/F/aspnetwebstack-dev/api/v3/index.json": {},
-        "https://www.myget.org/F/bergendahls/auth/9df6908f-5140-4415-92f3-85fffdfabbaa/api/v3/index.json": {},
-        "https://www.myget.org/F/plugandtrade-ecommerce/auth/9df6908f-5140-4415-92f3-85fffdfabbaa/api/v3/index.json": {},
-        "https://www.myget.org/F/plugandtrade-packages/api/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
