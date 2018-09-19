@@ -13,18 +13,27 @@ namespace DDreCaptcha.Attributes
     /// <summary>
     /// To much checks and crap. cleanup i needed
     /// </summary>
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false)]
     public class ReCaptchaFilterAttribute : ActionFilterAttribute
     {
         internal IConfiguration Config { get; set; }
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            Console.WriteLine(context?.ToString() == "");
             try
             {
                 if (context == null)
                 {
                     return;
                 }
+
+                Config = context.HttpContext.RequestServices.GetService(typeof(IConfiguration)) as IConfiguration;
+                if(Config == null)
+                {
+                    ((ControllerBase)context.Controller).ModelState.AddModelError("ReCaptcha", "Error");
+                    context.Result = ((ControllerBase)context.Controller).BadRequest("ReCaptcha Not configured");
+                    return;
+                }
+
                 var secret = Config.GetSection("Recaptcha:Secret")?.Value ?? "";
                 float.TryParse(Config.GetSection("Recaptcha:ScoreLimit")?.Value ?? "0", out var scoreLimit);
                 if (string.IsNullOrEmpty(secret))
