@@ -9,6 +9,10 @@ using Newtonsoft.Json;
 
 namespace DDreCaptcha.Attributes
 {
+
+    /// <summary>
+    /// To much checks and crap. cleanup i needed
+    /// </summary>
     public class ReCaptchaFilterAttribute : ActionFilterAttribute
     {
         internal IConfiguration Config { get; set; }
